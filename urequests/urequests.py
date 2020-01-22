@@ -7,6 +7,9 @@ class Response:
         self.encoding = "utf-8"
         self._cached = None
 
+    def __del__(self):
+        self.close()
+
     def close(self):
         if self.raw:
             self.raw.close()
